@@ -1,18 +1,26 @@
-const createZone = (
+const { createFeatureCollection } = require("../util/feature");
+
+const createZoneFeature = (
   name,
   risk_lvl,
   id,
   dots
 ) => ({
-  name,
-  risk_lvl,
-  id,
-  dots
+  type: 'Feature',
+  geometry: {
+    type: 'Polygon',
+    coordinates: dots
+  },
+  properties: {
+    name,
+    risk_lvl,
+    id
+  }
 })
 
 module.exports = (req, res, next) => {
-  res.json([
-    createZone(
+  const featureCollection = createFeatureCollection([
+    createZoneFeature(
       'Square',
       0,
       'SQUARE_ANTARCTICA',
@@ -40,7 +48,7 @@ module.exports = (req, res, next) => {
         ]
       ]
     ),
-    createZone(
+    createZoneFeature(
       'Circle',
       1,
       'CIRCLE_PACIFIC',
@@ -308,7 +316,7 @@ module.exports = (req, res, next) => {
         ]
       ]
     ),
-    createZone(
+    createZoneFeature(
       'Star',
       2,
       'STAR_ATLANTIC',
@@ -361,4 +369,6 @@ module.exports = (req, res, next) => {
       ]
     )
   ]);
+
+  res.json(featureCollection);
 }

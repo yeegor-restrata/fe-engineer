@@ -2,10 +2,21 @@
 
 `yarn start` in both subdirs -> run BE, then FE
 
+### DOCS
+
+- Mapbox GL JS - core map technology https://docs.mapbox.com/mapbox-gl-js/api/
+- React Map GL - React wrapper for the core map technology https://visgl.github.io/react-map-gl/
+- Layers visualise datasets on the map
+  - React Map GL https://visgl.github.io/react-map-gl/docs/api-reference/layer
+  - Mapbox Layers https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/
+  - Mapbox Gallery https://docs.mapbox.com/mapbox-gl-js/example/
+- Data driven stylingt https://docs.mapbox.com/mapbox-gl-js/example/data-driven-circle-colors/
+
+
 ### TODO
 
 - Set up state management, fetch data about people and zones there
-  - Use Redux (any wrapper allowed) or React.Context
+  - Use React.Context or Redux (any wrapper allowed)
 - Render people on the map
   - Safe -> green dot
   - Unknown -> yellow dot
